@@ -8,4 +8,14 @@ describe("Sauce demo test login", () => {
       .typePassword("secret_sauce")
       .clickLogin();
   });
+
+  it.only("Sauce demo logout test", () => {
+    new SauceDemoLoginPage()
+      .openSauceUrl()
+      .typeUsername("standard_user")
+      .typePassword("secret_sauce")
+      .clickLogin()
+      .clickmenuButton()
+      .clickLogoutButton();
+  });
 });

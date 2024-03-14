@@ -1,3 +1,5 @@
+import { SauceDemoHomePage } from "./home_page";
+
 export class SauceDemoLoginPage {
   constructor() {
     this.saucedemoUrl = "https://www.saucedemo.com/v1/";
@@ -23,6 +25,6 @@ export class SauceDemoLoginPage {
 
   clickLogin() {
     cy.get(this.loginButton).click();
-    // to do return new ...;
+    return new SauceDemoHomePage();
   }
 }
