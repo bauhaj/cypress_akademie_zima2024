@@ -1,6 +1,6 @@
 export class SauceDemoBasket {
   constructor() {
-    this.removeItemButton = 'button[data-test="remove-sauce-labs-backpack"]';
+    this.removeItemButton = ".item_pricebar > .btn_secondary";
   }
 
   clickRemoveItem() {
