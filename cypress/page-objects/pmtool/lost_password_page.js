@@ -1,23 +1,16 @@
+import { LoginPage } from "./login_page";
+
 export class LostPassword {
   constructor() {
-    this.pmtoolLostUrl =
-      "https://tredgate.com/pmtool/index.php?module=users/restore_password";
-    this.pmtoolUrl = "https://tredgate.com/pmtool";
-    this.forgetButton = "#forget_password";
     this.usernameInput = "#username";
     this.email = "#email";
     this.send = "#send";
-    this.back.Button = "#back";
+    this.backButton = "#back-btn";
   }
 
   openPmtool() {
     cy.visit(this.pmtoolUrl);
     return this;
-  }
-
-  clickForgetButton() {
-    cy.get(this.forgetButton).click();
-    return new LostPassword();
   }
 
   typeUsername(username) {
@@ -32,5 +25,10 @@ export class LostPassword {
 
   clcikSend(send) {
     cy.get(this.send).click();
+  }
+
+  clickBackButton() {
+    cy.get(this.backButton).click();
+    return new LoginPage();
   }
 }
