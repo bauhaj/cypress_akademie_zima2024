@@ -22,4 +22,8 @@ describe("Login page tests", () => {
       .passwordForgottenHaveText("Password forgotten?")
       .logoIsVisible();
   });
+
+  it.only("Alert not exist after open pmtool", () => {
+    new LoginPage().alertNotExist();
+  });
 });
