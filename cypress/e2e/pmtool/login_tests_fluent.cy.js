@@ -14,7 +14,7 @@ describe("Fluent Login tests", () => {
       .clickLogout();
   });
 
-  it.only("new test s otevřením lost password a z5 na login", () => {
-    new LoginPage().clickForgetButton().clickBackButton();
+  it("new test s otevřením lost password a z5 na login", () => {
+    new LoginPage().clickLostPassword().clickBackButton();
   });
 });
