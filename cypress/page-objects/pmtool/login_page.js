@@ -3,7 +3,7 @@ import { LostPassword } from "./lost_password_page";
 
 export class LoginPage {
   constructor() {
-    this.pmtoolUrl = "https://tredgate.com/pmtool";
+    this.pmtoolUrl = endcodeURI("https://tredgate.com/pmtool");
     this.usernameInput = "#username";
     this.passwordInput = "#password";
     this.loginButton = ".btn";
