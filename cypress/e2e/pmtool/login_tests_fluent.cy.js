@@ -6,15 +6,17 @@ describe("Fluent Login tests", () => {
   });
 
   it("Login to pmtool using Fluent API test", () => {
+    const username = Cypress.env("pmtool_username");
+    const password = Cypress.env("pmtool_password");
     new LoginPage()
-      .typeUsername("cypress_zima_2024")
-      .typePassword("Zima2024Cypress")
+      .typeUsername(username)
+      .typePassword(password)
       .clickLogin()
       .clickProfile()
       .clickLogout();
   });
 
-  it.only("new test s otevřením lost password a z5 na login", () => {
-    new LoginPage().clickForgetButton().clickBackButton();
+  it("new test s otevřením lost password a z5 na login", () => {
+    new LoginPage().clickLostPassword().clickBackButton();
   });
 });

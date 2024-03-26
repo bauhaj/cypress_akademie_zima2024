@@ -13,7 +13,7 @@ describe("Login page tests", () => {
     new LoginPage.pageUsername("have.attr", "placeholder", "Username");
   });
 
-  it.only("Visibility, placeholders, texts Tests", () => {
+  it("Visibility, placeholders, texts Tests", () => {
     new LoginPage()
       .usernameHavePlacelhoder("Username")
       .passwordHavePlacelhoder("Password")
@@ -23,7 +23,7 @@ describe("Login page tests", () => {
       .logoIsVisible();
   });
 
-  it.only("Alert not exist after open pmtool", () => {
+  it("Alert not exist after open pmtool", () => {
     new LoginPage().alertNotExist();
   });
 });
