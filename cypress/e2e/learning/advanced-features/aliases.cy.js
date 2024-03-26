@@ -14,4 +14,20 @@ describe("Using Aliases", () => {
       cy.get("#username").should("have.attr", "placeholder", placeholder);
     });
   });
+
+  it("Password input placeholder is consistent", () => {
+    cy.get("#password").invoke("attr", "placeholder").as("passwordPlaceholder");
+
+    new LoginPage()
+      .typeUsername("cypress_zima_2024")
+      .typePassword("Zima2024Cypress")
+      .clickLogin()
+      .clickProfile()
+      .clickLogout();
+
+    cy.get("@passwordPlaceholder").then((placeholder) => {
+      cy.log(placeholder);
+      cy.get("#password").should("have.attr", "placeholder", placeholder);
+    });
+  });
 });
