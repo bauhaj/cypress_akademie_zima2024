@@ -26,7 +26,9 @@ describe("Register a New Account", () => {
       .typeAddressInput(faker.location.streetAddress())
       .typeCityInput(faker.location.city())
       .selectCountry("56")
-
-      .selectRegionStateSelect("901");
+      .selectRegionStateSelect("901")
+      .typeZipCodeInput(faker.location.zipCode())
+      .loginNameInputIsVisible()
+      .typeLoginNameInput("BrambůrkaZemiakova");
   });
 });

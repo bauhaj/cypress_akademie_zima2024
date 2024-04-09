@@ -11,7 +11,7 @@ export class CreateAccountPage {
     this.regionStateSelect = "#AccountFrm_zone_id";
     this.zipCodeInput = "#AccountFrm_postcode";
     this.countrySelect = "#AccountFrm_country_id";
-    this.LoginNameInput = "#AccountFrm_loginname";
+    this.loginNameInput = "#AccountFrm_loginname";
     this.passwordInput = "#AccountFrm_password";
     this.passwordConfirmInput = "#AccountFrm_confirm";
     this.subscribleRadioButton = '[name="newsletter"]';
@@ -84,5 +84,20 @@ export class CreateAccountPage {
   }
   wait() {
     cy.wait(1000);
+  }
+
+  typeZipCodeInput(zipCode) {
+    cy.get(this.zipCodeInput).type(zipCode);
+    return this;
+  }
+
+  loginNameInputIsVisible() {
+    cy.get(this.loginNameInput).should("be.visible");
+    return this;
+  }
+
+  typeLoginNameInput(login) {
+    cy.get(this.loginNameInput).type(login);
+    return this;
   }
 }
