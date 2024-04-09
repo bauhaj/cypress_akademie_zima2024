@@ -5,6 +5,10 @@ import { fakerCS_CZ as faker } from "@faker-js/faker";
 describe("Register a New Account", () => {
   it("Fill out the form and register a new account", () => {
     const czechPhone = faker.phone.number("+420#########");
+    const loginName = `Bramburka_${faker.number.int({
+      min: 1000,
+      max: 99999,
+    })}`;
 
     new HomePage()
       .openAutomationteststore()
@@ -29,6 +33,15 @@ describe("Register a New Account", () => {
       .selectRegionStateSelect("901")
       .typeZipCodeInput(faker.location.zipCode())
       .loginNameInputIsVisible()
-      .typeLoginNameInput("BrambůrkaZemiakova");
+      .typeLoginNameInput(loginName)
+      .passwordInputIsExist()
+      .typePasswordInput("Testík&3")
+      .typePasswordConfirmInput("Testík&3")
+      .selectSubscribeRadioButton("0")
+      .selectPrivacyPoliciCheckBox("1")
+      .checkTheCheckBox()
+      .checkAlert()
+      .clickContinueButton()
+      .checkCreateAlert();
   });
 });

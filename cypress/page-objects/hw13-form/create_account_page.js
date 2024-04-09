@@ -1,3 +1,5 @@
+import { SuccessPage } from "./success_page";
+
 export class CreateAccountPage {
   constructor() {
     this.firstNameInput = "#AccountFrm_firstname";
@@ -17,6 +19,8 @@ export class CreateAccountPage {
     this.subscribleRadioButton = '[name="newsletter"]';
     this.privacyPolicyCheckBox = '[name="agree"]';
     this.continueButton = "button[title='Continue']";
+    this.alertDiv = "div.alert";
+    this.checkBox = "#AccountFrm_agree";
   }
 
   firstNameInputHaveValue(firstName) {
@@ -75,15 +79,13 @@ export class CreateAccountPage {
 
   selectCountry(select) {
     cy.get(this.countrySelect).select(select);
+    cy.wait(1000);
     return this;
   }
 
   selectRegionStateSelect(select) {
     cy.get(this.regionStateSelect).select(select);
     return this;
-  }
-  wait() {
-    cy.wait(1000);
   }
 
   typeZipCodeInput(zipCode) {
@@ -99,5 +101,44 @@ export class CreateAccountPage {
   typeLoginNameInput(login) {
     cy.get(this.loginNameInput).type(login);
     return this;
+  }
+
+  passwordInputIsExist() {
+    cy.get(this.passwordInput).should("exist");
+    return this;
+  }
+
+  typePasswordInput(password) {
+    cy.get(this.passwordInput).type(password);
+    return this;
+  }
+
+  typePasswordConfirmInput(confirmPassword) {
+    cy.get(this.passwordConfirmInput).type(confirmPassword);
+    return this;
+  }
+  checkAlert() {
+    cy.get(this.alertDiv).should("not.exist");
+    return this;
+  }
+
+  selectSubscribeRadioButton() {
+    cy.get(this.subscribleRadioButton).check();
+    return this;
+  }
+
+  selectPrivacyPoliciCheckBox() {
+    cy.get(this.privacyPolicyCheckBox).check();
+    return this;
+  }
+
+  checkTheCheckBox() {
+    cy.get(this.checkBox).should("be.checked");
+    return this;
+  }
+
+  clickContinueButton() {
+    cy.get(this.continueButton).click();
+    return new SuccessPage();
   }
 }
