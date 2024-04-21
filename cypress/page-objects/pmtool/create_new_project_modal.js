@@ -9,6 +9,7 @@ export class CreateNewProjectModal {
       '//div[@data-testid="Attachments"]//input[contains(@id, "uploadifive_attachments_upload")]';
     this.startDateInput = 'div[data-testid="Start Date"] input';
     this.saveButton = 'button[type="submit"]';
+    this.descriptionIframe = "iframe[tabindex]";
   }
 
   selectPriority(priority) {
@@ -49,5 +50,14 @@ export class CreateNewProjectModal {
   clickSave() {
     cy.get(this.saveButton).click();
     return new ProjectsTasksPage();
+  }
+
+  typeDescription(description) {
+    cy.get(this.descriptionIframe).then(($iframe) => {
+      const body = $iframe.contents().find("body");
+      cy.wrap(body).as("iframe");
+    });
+    cy.get("@iframe").type(description);
+    return this;
   }
 }

@@ -13,6 +13,10 @@ export class ProjectInfoPage extends HeaderSection {
     this.priorityValue = "tr.form-group-156 td div";
     this.statusValue = "tr.form-group-157 td div";
     this.startDateValue = "tr.form-group-159 td";
+    this.statusDiv = "tr.form-group-157 td div";
+    this.startDateTd = "tr.form-group-159 td";
+    this.priorityDiv = "tr.form-group-156 td div";
+    this.descriptionDiv = ".portlet-body .content_box_content";
   }
 
   projectTitleHasText(projectTitle) {
@@ -42,6 +46,26 @@ export class ProjectInfoPage extends HeaderSection {
 
   projectHaveStartDate(startDate) {
     cy.get(this.startDateValue).should("have.text", startDate);
+    return this;
+  }
+
+  startDateHasText(startDateText) {
+    cy.get(this.startDateTd).should("have.text", startDateText);
+    return this;
+  }
+
+  statusHasText(statusText) {
+    cy.get(this.statusDiv).should("have.text", statusText);
+    return this;
+  }
+
+  priorityHasText(priority) {
+    cy.get(this.priorityDiv).should("have.text", priority);
+    return this;
+  }
+
+  descriptionHasText(description) {
+    cy.get(this.descriptionDiv).should("have.text", description);
     return this;
   }
 }
