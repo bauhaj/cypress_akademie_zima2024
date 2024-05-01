@@ -1,0 +1,20 @@
+[
+  {
+    "username_prefix": "Manager",
+    "password": "Manager_password",
+    "description": "New Unique Manager",
+    "access_group": "Manager"
+  },
+  {
+    "username_prefix": "Client",
+    "password": "Client_password",
+    "description": "New Unique Client",
+    "access_group": "Client"
+  },
+  {
+    "username_prefix": "Developer",
+    "password": "Developer_password",
+    "description": "New Unique Developer",
+    "access_group": "Developer"
+  }
+]
